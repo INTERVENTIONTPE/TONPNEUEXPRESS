@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ton Pneu Express · Pneus à domicile 24h/24 à Vitry-sur-Seine et en Île-de-France</title>
+<meta name="description" content="Montage, équilibrage, réparation de crevaison et changement saisonnier de pneus, à domicile ou sur place. 24h/24, 7j/7 à Vitry-sur-Seine et dans toute l'Île-de-France. Appelez le 07 83 05 86 65.">
+<meta name="theme-color" content="#071427">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Ton Pneu Express",
+  "telephone": "+33783058665",
+  "areaServed": "Île-de-France",
+  "address": {"@type": "PostalAddress","addressLocality": "Vitry-sur-Seine","postalCode": "94400","addressCountry": "FR"},
+  "openingHours": "Mo-Su 00:00-23:59",
+  "sameAs": ["https://www.snapchat.com/add/tonpneu.express"]
+}
+</script>
+<style>
+:root{
+  --night:#071427;
+  --navy:#0C2244;
+  --steel:#16325E;
+  --volt:#1FA8FF;
+  --ice:#C9EAFF;
+  --white:#FFFFFF;
+  --mist:#9DB3CF;
+  --snap:#FFFC00;
+  --display:"Barlow Condensed", Impact, sans-serif;
+  --body:"Barlow", system-ui, sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--night);color:var(--white);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--volt);outline-offset:3px;border-radius:4px}
+.wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
+
+h1,h2,h3{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.005em}
+h2{font-size:clamp(2.4rem,5.5vw,4rem);margin-bottom:.4em}
+.lead{color:var(--mist);max-width:56ch;font-size:1.08rem}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--display);font-style:italic;font-weight:800;font-size:1.35rem;text-transform:uppercase;text-decoration:none;padding:.7em 1.3em;border-radius:6px;transform:skewX(-8deg);transition:background .2s,color .2s}
+.btn>*{transform:skewX(8deg)}
+.btn svg{width:1.1em;height:1.1em}
+.btn-volt{background:var(--volt);color:var(--night)}
+.btn-volt:hover{background:var(--white)}
+.btn-line{border:2px solid var(--volt);color:var(--white)}
+.btn-line:hover{background:var(--volt);color:var(--night)}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:50;background:rgba(7,20,39,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(31,168,255,.18)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:40px;height:40px}
+.logo b{font-family:var(--display);font-style:italic;font-weight:900;font-size:1.7rem;line-height:.8;text-transform:none}
+.logo b span{display:block;color:var(--volt);font-size:.95rem;letter-spacing:.12em;text-transform:uppercase}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{text-decoration:none;font-weight:600;color:var(--mist)}
+nav a:hover{color:var(--white)}
+.bar .btn{font-size:1.1rem;padding:.5em 1em}
+@media (max-width:880px){nav{display:none}}
+.bar .btn .short{display:none}
+@media (max-width:520px){.bar .btn .num{display:none}.bar .btn .short{display:inline}}
+
+/* Fenêtre numéro */
+.pop{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(3,10,22,.75);backdrop-filter:blur(6px);padding:20px}
+.pop.on{display:grid}
+.pop-box{background:var(--navy);border:2px solid var(--volt);border-radius:14px;padding:34px 28px;text-align:center;width:min(420px,100%)}
+.pop-box p{color:var(--mist);margin-bottom:8px}
+.pop-num{display:block;font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(2.6rem,11vw,3.6rem);line-height:1;color:var(--white);text-decoration:none;margin-bottom:24px;user-select:all}
+.pop-box .actions{justify-content:center}
+.pop-box button.btn{border:0;cursor:pointer;background:transparent;border:2px solid var(--volt);color:var(--white)}
+.pop-close{margin-top:18px;background:none;border:0;color:var(--mist);font:inherit;text-decoration:underline;cursor:pointer}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:clamp(56px,9vw,110px) 0 clamp(64px,9vw,120px);background:
+  radial-gradient(900px 500px at 85% 20%,rgba(31,168,255,.28),transparent 60%),
+  linear-gradient(180deg,var(--navy),var(--night))}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.2rem,8.5vw,6.6rem)}
+.hero h1 .l2{display:block;color:var(--volt)}
+.hero h1 .l3{display:block;font-size:.42em;margin-top:.35em;color:var(--white)}
+.hero p{margin:26px 0 34px;color:var(--ice);max-width:46ch;font-size:1.12rem}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;color:var(--mist);font-weight:600;list-style:none}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts svg{width:20px;height:20px;color:var(--volt)}
+
+/* Pneu signature */
+.tire-stage{position:relative;aspect-ratio:1;max-width:480px;justify-self:end;width:100%}
+.tire{width:100%;height:100%;animation:roll 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes roll{from{transform:translateX(60%) rotate(200deg);opacity:0}to{transform:none;opacity:1}}
+.clock{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;line-height:.9}
+.clock .big{font-size:clamp(2.6rem,6vw,4.2rem)}
+.clock .big+.big{color:var(--volt)}
+.clock small{display:block;font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:.95rem;color:var(--mist);margin-top:10px}
+.speed{position:absolute;left:-12%;top:50%;width:40%;height:6px;background:linear-gradient(90deg,transparent,var(--volt));border-radius:3px;transform:translateY(-50%) skewX(-20deg);opacity:.8}
+.speed.s2{top:40%;width:28%;left:-4%;opacity:.5}
+.speed.s3{top:60%;width:22%;left:0;opacity:.4}
+@media (max-width:880px){
+  .hero .wrap{grid-template-columns:1fr}
+  .tire-stage{justify-self:center;max-width:320px;order:-1}
+  .speed{display:none}
+}
+
+/* Sections */
+section{padding:clamp(72px,9vw,120px) 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:48px}
+
+/* Services */
+.services{background:var(--night)}
+.grid-s{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(31,168,255,.25);border:2px solid rgba(31,168,255,.25);border-radius:10px;overflow:hidden}
+.svc{background:var(--night);padding:34px 30px 38px;transition:background .25s}
+.svc:hover{background:var(--navy)}
+.svc svg{width:52px;height:52px;color:var(--volt);margin-bottom:22px}
+.svc h3{font-size:1.9rem;margin-bottom:10px}
+.svc p{color:var(--mist)}
+@media (max-width:900px){.grid-s{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:580px){.grid-s{grid-template-columns:1fr}}
+
+/* Bande engagements */
+.band{background:var(--volt);color:var(--night);padding:0;transform:skewY(-2deg);margin:30px 0}
+.band .wrap{transform:skewY(2deg);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 0}
+.band div{display:flex;align-items:center;gap:14px}
+.band svg{width:42px;height:42px;flex:none}
+.band strong{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:1.45rem;line-height:1}
+@media (max-width:900px){.band .wrap{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.band .wrap{grid-template-columns:1fr}}
+
+/* Étapes */
+.steps{background:linear-gradient(180deg,var(--night),var(--navy))}
+.grid-st{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:st;list-style:none}
+.grid-st li{position:relative;padding-top:78px}
+.grid-st li::before{counter-increment:st;content:counter(st);position:absolute;top:0;left:0;font-family:var(--display);font-style:italic;font-weight:900;font-size:5.5rem;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--volt)}
+.grid-st h3{font-size:2rem;margin-bottom:10px}
+.grid-st p{color:var(--mist);max-width:34ch}
+@media (max-width:800px){.grid-st{grid-template-columns:1fr}}
+
+/* Zone */
+.zone .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.deps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:30px;list-style:none}
+.deps li{border:2px solid var(--steel);border-radius:8px;padding:14px 10px;text-align:center}
+.deps b{display:block;font-family:var(--display);font-style:italic;font-weight:900;font-size:2rem;line-height:1;color:var(--volt)}
+.deps span{font-size:.85rem;color:var(--mist)}
+.deps li.home{border-color:var(--volt);background:rgba(31,168,255,.12)}
+.map-card{background:var(--navy);border-radius:14px;padding:36px;position:relative;overflow:hidden}
+.map-card svg.map{width:100%;height:auto}
+.map-card p{margin-top:18px;color:var(--ice);font-weight:600;text-align:center}
+@media (max-width:880px){.zone .wrap{grid-template-columns:1fr}}
+@media (max-width:420px){.deps{grid-template-columns:repeat(2,1fr)}}
+
+/* FAQ */
+.faq{background:var(--navy)}
+.faq .wrap{max-width:820px}
+details{border-bottom:1px solid var(--steel)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-weight:700;font-size:1.15rem}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:30px;height:30px;border:2px solid var(--volt);border-radius:50%;position:relative;transition:transform .25s}
+summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--volt);transform:translate(-50%,-50%)}
+summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] summary i{transform:rotate(45deg)}
+details p{padding:0 0 24px;color:var(--mist);max-width:62ch}
+
+/* Contact */
+.contact{text-align:center;background:
+  radial-gradient(700px 400px at 50% 0%,rgba(31,168,255,.25),transparent 70%),var(--night)}
+.contact h2{font-size:clamp(3rem,8vw,6rem)}
+.phone{display:inline-block;font-family:var(--display);font-style:italic;font-weight:900;font-size:clamp(3rem,10vw,7rem);line-height:1;text-decoration:none;color:var(--white);margin:10px 0 30px;transition:color .2s}
+.phone:hover{color:var(--volt)}
+.contact .actions{justify-content:center}
+.snap{margin:70px auto 0;max-width:620px;display:flex;align-items:center;gap:28px;text-align:left;background:var(--navy);border-radius:14px;padding:26px}
+.snap .ghost{flex:none;width:96px;height:96px;border-radius:20px;background:var(--snap);display:grid;place-items:center}
+.snap .ghost svg{width:58px;height:58px}
+.snap h3{font-size:1.8rem;margin-bottom:6px}
+.snap p{color:var(--mist);margin-bottom:12px}
+.snap a{color:var(--snap);font-weight:700}
+@media (max-width:520px){.snap{flex-direction:column;text-align:center}}
+
+/* Pied de page */
+footer{border-top:1px solid var(--steel);padding:40px 0 110px;color:var(--mist);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--white)}
+
+/* Barre d'appel mobile */
+.callbar{display:none}
+@media (max-width:720px){
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
+  .callbar a{flex:1;justify-content:center;font-size:1.2rem;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  .callbar .btn-line{background:var(--night);flex:.55}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Icônes réutilisées -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 4h16v12H8l-4 4z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Ton Pneu Express, accueil">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#1FA8FF" stroke-width="6" stroke-dasharray="3 2.4"/><circle cx="20" cy="20" r="9" fill="none" stroke="#fff" stroke-width="3"/><circle cx="20" cy="20" r="3" fill="#fff"/></svg>
+      <b>Ton Pneu<span>Express</span></b>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#fonctionnement">Comment ça marche</a></li>
+        <li><a href="#zone">Zone</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-volt" href="tel:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-phone"/></svg><span class="num">07 83 05 86 65</span><span class="short">Appeler</span></span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Le spécialiste <span class="l2">du pneu</span><span class="l3">À domicile ou sur place</span></h1>
+      <p>Un pneu crevé, usé ou à remplacer&nbsp;? On se déplace avec un camion-atelier équipé, là où vous êtes&nbsp;: chez vous, au travail ou au bord de la route.</p>
+      <div class="actions">
+        <a class="btn btn-volt" href="tel:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-phone"/></svg>Appeler maintenant</span></a>
+        <a class="btn btn-line" href="sms:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-sms"/></svg>Envoyer un SMS</span></a>
+      </div>
+      <ul class="facts">
+        <li><svg><use href="#i-check"/></svg>Déplacement rapide</li>
+        <li><svg><use href="#i-check"/></svg>Toute l'Île-de-France</li>
+        <li><svg><use href="#i-check"/></svg>Tarifs compétitifs</li>
+      </ul>
+    </div>
+
+    <div class="tire-stage" aria-hidden="true">
+      <span class="speed"></span><span class="speed s2"></span><span class="speed s3"></span>
+      <svg class="tire" viewBox="0 0 400 400">
+        <defs>
+          <radialGradient id="rub" cx="50%" cy="50%" r="50%">
+            <stop offset="70%" stop-color="#0C2244"/><stop offset="100%" stop-color="#06101F"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="196" fill="url(#rub)"/>
+        <!-- sculptures de la bande de roulement -->
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#1FA8FF" stroke-width="26" stroke-dasharray="14 10" opacity=".9"/>
+        <circle cx="200" cy="200" r="158" fill="none" stroke="#16325E" stroke-width="6"/>
+        <circle cx="200" cy="200" r="150" fill="#071427"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="#1FA8FF" stroke-width="2" opacity=".5"/>
+      </svg>
+      <div class="clock"><span class="big">24h/24</span><br><span class="big">7j/7</span><small>On décroche jour et nuit</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2>Nos services</h2>
+      <p class="lead">Tout ce qu'un garage fait sur vos pneus, on le fait devant chez vous, avec du matériel professionnel.</p>
+    </div>
+    <div class="grid-s">
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3"><circle cx="26" cy="26" r="22"/><circle cx="26" cy="26" r="11"/><path d="M26 4v8M26 40v8M4 26h8M40 26h8" stroke-linecap="round"/></svg>
+        <h3>Montage et démontage</h3>
+        <p>Pose de pneus neufs ou fournis par vous, sur jantes tôle ou alu, pour citadines, SUV et utilitaires.</p>
+      </article>
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3"><circle cx="26" cy="22" r="18"/><circle cx="26" cy="22" r="4"/><path d="M26 18V6M22 24l-10 6M30 24l10 6" stroke-linecap="round"/><path d="M8 48h36" stroke-linecap="round"/></svg>
+        <h3>Équilibrage de roues</h3>
+        <p>Fini les vibrations dans le volant. Chaque roue passe sur l'équilibreuse avant d'être remontée.</p>
+      </article>
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="22" cy="28" r="18"/><circle cx="22" cy="28" r="8"/><path d="m36 6 4 6 6-2-2 6 5 4-6 1"/></svg>
+        <h3>Réparation de crevaison</h3>
+        <p>Quand le pneu est réparable, on le répare sur place plutôt que de vous en vendre un neuf.</p>
+      </article>
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M14 10c-6 5-8 12-6 20 2 7 8 12 18 12s16-5 18-12c2-8 0-15-6-20"/><path d="M26 14v14"/><circle cx="26" cy="35" r="1.6" fill="currentColor"/></svg>
+        <h3>Contrôle de pression</h3>
+        <p>Vérification et mise à la bonne pression, pour une meilleure tenue de route et moins de consommation.</p>
+      </article>
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="18" cy="26" r="8"/><path d="M18 8v4M18 40v4M4 26h-0M2 26h4M30 26h-0M6 14l3 3M6 38l3-3"/><path d="M38 8v36M28 14l20 24M48 14 28 38M34 8l4 4 4-4M34 44l4-4 4 4"/></svg>
+        <h3>Changement saisonnier</h3>
+        <p>Passage aux pneus hiver ou été au bon moment, avec stockage possible de votre jeu de rechange sur demande.</p>
+      </article>
+      <article class="svc">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 14h20v20H16zM36 20h7l5 7v7H36"/><circle cx="22" cy="38" r="4"/><circle cx="42" cy="38" r="4"/><path d="M2 18h9M4 24h7M6 30h5"/></svg>
+        <h3>Déplacement à domicile</h3>
+        <p>Domicile, parking d'entreprise, bord de route&nbsp;: on intervient partout en Île-de-France.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<div class="band" role="list">
+  <div class="wrap">
+    <div role="listitem">
+      <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><circle cx="24" cy="24" r="14"/><path d="M24 16v8l5 4M20 4h8M2 18h6M2 26h6M4 34h6"/></svg>
+      <strong>Intervention rapide</strong>
+    </div>
+    <div role="listitem">
+      <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 6 9v11c0 9 7 16 15 19 8-3 15-10 15-19V9z"/><path d="m14 21 5 5 9-10"/></svg>
+      <strong>Matériel professionnel</strong>
+    </div>
+    <div role="listitem">
+      <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"><path d="M4 18h7v20H4zM11 36h19a4 4 0 0 0 4-3l3-11a4 4 0 0 0-4-5h-9l2-7a4 4 0 0 0-7-3l-8 11"/></svg>
+      <strong>Service fiable et soigné</strong>
+    </div>
+    <div role="listitem">
+      <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M33 9a14 14 0 1 0 0 24M6 17h18M6 25h18"/></svg>
+      <strong>Tarifs compétitifs</strong>
+    </div>
+  </div>
+</div>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="steps" id="fonctionnement">
+  <div class="wrap">
+    <div class="head">
+      <h2>Un appel,<br>on arrive</h2>
+      <p class="lead">Pas de rendez-vous en garage, pas d'attente. Trois étapes et vous repartez.</p>
+    </div>
+    <ol class="grid-st">
+      <li>
+        <h3>Vous appelez</h3>
+        <p>Dites-nous où vous êtes, votre véhicule et la taille du pneu (inscrite sur le flanc, par exemple 205/55 R16).</p>
+      </li>
+      <li>
+        <h3>On se déplace</h3>
+        <p>Le camion-atelier arrive avec les pneus et tout l'outillage. On vous donne le prix avant de commencer.</p>
+      </li>
+      <li>
+        <h3>Vous reprenez la route</h3>
+        <p>Montage, équilibrage, pression&nbsp;: tout est fait sur place, en général en moins d'une heure.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ZONE -->
+<section class="zone" id="zone">
+  <div class="wrap">
+    <div>
+      <h2>Partout en<br>Île-de-France</h2>
+      <p class="lead">Basés à Vitry-sur-Seine, on couvre Paris et les sept départements autour.</p>
+      <ul class="deps">
+        <li class="home"><b>94</b><span>Val-de-Marne</span></li>
+        <li><b>75</b><span>Paris</span></li>
+        <li><b>92</b><span>Hauts-de-Seine</span></li>
+        <li><b>93</b><span>Seine-St-Denis</span></li>
+        <li><b>91</b><span>Essonne</span></li>
+        <li><b>77</b><span>Seine-et-Marne</span></li>
+        <li><b>78</b><span>Yvelines</span></li>
+        <li><b>95</b><span>Val-d'Oise</span></li>
+      </ul>
+    </div>
+    <div class="map-card">
+      <svg class="map" viewBox="0 0 300 260" aria-label="Carte de l'Île-de-France avec Vitry-sur-Seine au centre" role="img">
+        <path d="M60 40 120 18l70 8 60 28 30 50-10 60-40 50-70 20-70-10-45-40-15-60 20-50z" fill="#16325E" stroke="#1FA8FF" stroke-width="2"/>
+        <circle cx="150" cy="130" r="80" fill="none" stroke="#1FA8FF" stroke-width="1.5" stroke-dasharray="4 6" opacity=".55"/>
+        <circle cx="150" cy="130" r="46" fill="none" stroke="#1FA8FF" stroke-width="1.5" stroke-dasharray="4 6" opacity=".8"/>
+        <circle cx="150" cy="130" r="18" fill="#1FA8FF" opacity=".25"/>
+        <path d="M150 104c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" fill="#1FA8FF"/>
+        <circle cx="150" cy="120" r="5.5" fill="#071427"/>
+      </svg>
+      <p>Point de départ&nbsp;: Vitry-sur-Seine</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Vos questions</h2>
+    <details>
+      <summary>Vous intervenez vraiment la nuit et le week-end&nbsp;?<i></i></summary>
+      <p>Oui, 24h/24 et 7j/7. Appelez le 07 83 05 86 65 à n'importe quelle heure, on vous dit tout de suite quand on peut être là.</p>
+    </details>
+    <details>
+      <summary>Est-ce que vous fournissez les pneus&nbsp;?<i></i></summary>
+      <p>Oui. Donnez-nous la dimension de votre pneu au téléphone et on vient avec. Vous pouvez aussi nous faire monter des pneus que vous avez déjà achetés.</p>
+    </details>
+    <details>
+      <summary>Combien ça coûte&nbsp;?<i></i></summary>
+      <p>Le prix dépend du service, de la dimension du pneu et du lieu d'intervention. On vous annonce le tarif avant de se déplacer, sans surprise à l'arrivée.</p>
+    </details>
+    <details>
+      <summary>Où trouver la taille de mon pneu&nbsp;?<i></i></summary>
+      <p>Elle est écrite sur le flanc du pneu, sous la forme 205/55 R16 91V par exemple. Une photo envoyée par SMS suffit aussi.</p>
+    </details>
+    <details>
+      <summary>Faut-il un endroit particulier pour intervenir&nbsp;?<i></i></summary>
+      <p>Il suffit d'un emplacement où le camion peut se garer à côté de votre véhicule&nbsp;: rue, parking, cour ou allée.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Un pneu à changer&nbsp;?</h2>
+    <a class="phone" href="tel:+33783058665">07 83 05 86 65</a>
+    <div class="actions">
+      <a class="btn btn-volt" href="tel:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-phone"/></svg>Appeler</span></a>
+      <a class="btn btn-line" href="sms:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-sms"/></svg>SMS avec photo du pneu</span></a>
+    </div>
+
+    <div class="snap">
+      <div class="ghost" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round" d="M32 6c-10 0-16 7-16 16v7l-5-1c-2 0-3 2-1 3l6 3c-2 6-6 10-11 11 0 2 4 3 7 3l1 4c3-1 6-1 9 1 3 2 6 4 10 4s7-2 10-4c3-2 6-2 9-1l1-4c3 0 7-1 7-3-5-1-9-5-11-11l6-3c2-1 1-3-1-3l-5 1v-7c0-9-6-16-16-16z"/></svg>
+      </div>
+      <div>
+        <h3>Retrouvez-nous sur Snapchat</h3>
+        <p>Nos interventions en direct et les bons plans du moment.</p>
+        <a href="https://www.snapchat.com/add/tonpneu.express" target="_blank" rel="noopener">Ajouter tonpneu.express</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Ton Pneu Express · Vitry-sur-Seine et toute l'Île-de-France</span>
+    <a href="tel:+33783058665">07 83 05 86 65</a>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-volt" href="tel:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-phone"/></svg>Appeler</span></a>
+  <a class="btn btn-line" href="sms:+33783058665"><span style="display:flex;align-items:center;gap:.5em"><svg><use href="#i-sms"/></svg>SMS</span></a>
+</div>
+
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="pop-t">
+  <div class="pop-box">
+    <p id="pop-t">Appelez-nous 24h/24, 7j/7</p>
+    <a class="pop-num" href="tel:+33783058665" target="_top" data-direct>07 83 05 86 65</a>
+    <div class="actions">
+      <a class="btn btn-volt" id="pop-go" href="tel:+33783058665" target="_top" data-direct><span style="display:flex;align-items:center;gap:.5em"><svg><use id="pop-ico" href="#i-phone"/></svg><span id="pop-label">Appeler</span></span></a>
+      <button class="btn" type="button" id="copy"><span>Copier le numéro</span></button>
+    </div>
+    <button class="pop-close" type="button" id="close">Fermer</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+const pop=document.getElementById('pop');
+const copyBtn=document.getElementById('copy');
+
+const modes={
+  tel:{title:'Appelez-nous 24h/24, 7j/7',label:'Appeler',href:'tel:+33783058665',ico:'#i-phone'},
+  sms:{title:'Envoyez-nous un SMS, avec une photo du pneu si possible',label:'Envoyer un SMS',href:'sms:+33783058665',ico:'#i-sms'}
+};
+
+// Chaque lien d'appel ou de SMS affiche le numéro en grand, avec un bouton pour agir ou copier
+document.querySelectorAll('a[href^="tel:"]:not([data-direct]), a[href^="sms:"]:not([data-direct])').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const m=modes[a.getAttribute('href').startsWith('sms:')?'sms':'tel'];
+    document.getElementById('pop-t').textContent=m.title;
+    document.getElementById('pop-label').textContent=m.label;
+    document.getElementById('pop-go').href=m.href;
+    document.getElementById('pop-ico').setAttribute('href',m.ico);
+    pop.querySelector('.pop-num').href=m.href;
+    pop.classList.add('on');
+    copyBtn.firstElementChild.textContent='Copier le numéro';
+    pop.querySelector('.pop-num').focus();
+  });
+});
+
+copyBtn.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText('0783058665');copyBtn.firstElementChild.textContent='Numéro copié';}
+  catch{copyBtn.firstElementChild.textContent='07 83 05 86 65';}
+});
+
+const close=()=>pop.classList.remove('on');
+document.getElementById('close').addEventListener('click',close);
+pop.addEventListener('click',e=>{if(e.target===pop)close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+</script>
+</body>
+</html>
